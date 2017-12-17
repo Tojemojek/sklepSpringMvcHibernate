@@ -20,8 +20,8 @@
 <form id="logowanie" method="post">
     <table>
         <tr>
-            <td>User</td>
-            <td><input type="text" name="userName"></td>
+            <td>Email</td>
+            <td><input type="text" name="userEmail"></td>
         </tr>
         <tr>
             <td>Password</td>

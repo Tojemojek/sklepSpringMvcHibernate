@@ -3,6 +3,16 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+    <filter>
+        <filter-name>LoggedUserFilter</filter-name>
+        <filter-class>pl.sda.javawwa.filter.LoggedUserFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>LoggedUserFilter</filter-name>
+        <url-pattern>/zabezpieczone/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>spring-dispatcher</servlet-name>
         <servlet-class>

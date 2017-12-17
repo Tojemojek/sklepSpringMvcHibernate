@@ -1,6 +1,8 @@
 package pl.sda.javawwa.filter;
 
 
+import pl.sda.javawwa.dto.CustomerDto;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,9 +20,8 @@ public class LoggedUserFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
 
-
-        String user = (String) req.getSession().getAttribute("user");
-        if (user == null) {
+        Object user = req.getSession().getAttribute("user");
+        if (user == null || !(user instanceof CustomerDto)) {
             String url = req.getRequestURL().toString();
             req.getSession().setAttribute("requestedUrl", url);
             resp.sendRedirect("/login");
