@@ -7,6 +7,14 @@
 
 <jsp:include page="userHeader.jsp"/>
 
+<br>
+<c:if test="${error eq 'INCORRECT_CREDENTIALS'}">
+    <span style="color: red">Niepoprawny user / hasło</span>
+</c:if>
+<br>
+
+
+
 Top <c:out value="${topProduct.size()}"></c:out>  produktów
 
 <table>
@@ -19,6 +27,7 @@ Top <c:out value="${topProduct.size()}"></c:out>  produktów
             <td><c:out value="${products.price}"/></td>
             <td>
                 <c:url value="addToBasket" var="basketUrl">
+                    <c:param name="productId" value="${products.id}"/>
                     <c:param name="count" value="${topProduct.size()}"/>
                 </c:url>
                 <a href="<c:out value="${basketUrl}"/>">Do koszyka</a>

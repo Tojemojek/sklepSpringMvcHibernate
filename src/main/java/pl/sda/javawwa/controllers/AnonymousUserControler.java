@@ -30,7 +30,7 @@ public class AnonymousUserControler {
 
     @RequestMapping("/addToBasket")
     public ModelAndView addToBasket(@RequestParam(name = "count", defaultValue = "32") Integer count,
-                                    @RequestParam(name = "productID", required = true) Integer productId,
+                                    @RequestParam(name = "productId", required = true) Integer productId,
                                     HttpSession session) {
 
         Map<Integer, BasketProductDto> basketProductList = (Map<Integer, BasketProductDto>) session.getAttribute("basket");

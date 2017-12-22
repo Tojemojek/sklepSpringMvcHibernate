@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CustomerDao {
 
-    public List getAllCustomers();
+    public List<Customer> getAllCustomers();
 
     public Customer findCustomerByEmail(String email);
 

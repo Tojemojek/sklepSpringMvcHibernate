@@ -1,10 +1,11 @@
 package pl.sda.javawwa.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
-public class OrderItem {
+@Entity
+@Table(name="order_has_product")
+public class OrderItem implements Serializable {
 
     @Id
     @ManyToOne

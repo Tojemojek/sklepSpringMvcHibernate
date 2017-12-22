@@ -5,7 +5,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Entity
+@Table(name = "`ORDER`")
 public class Order {
 
     @Id
@@ -21,7 +22,7 @@ public class Order {
     private LocalDateTime orderedDate;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
