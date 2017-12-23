@@ -6,10 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import pl.sda.javawwa.controllers.OldServletController;
 import pl.sda.javawwa.dao.OrderDao;
 import pl.sda.javawwa.entity.Order;
-import pl.sda.javawwa.entity.OrderItem;
 
 import javax.persistence.NoResultException;
 import java.util.List;
@@ -52,5 +50,20 @@ public class OrderDaoImpl implements OrderDao {
         }
         LOG.debug("Znaleziono zamówienie o id" + orderId);
         return order;
+    }
+
+    @Override
+    public Boolean addOrder(Order order) {
+        Session session = sessionFactory.openSession();
+
+        session.saveOrUpdate(order);
+        session.close();
+
+        if (order.getId() == null) {
+            return true;
+        }
+
+
+        return false;
     }
 }

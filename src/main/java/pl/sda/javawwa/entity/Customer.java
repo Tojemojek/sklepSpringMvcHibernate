@@ -28,9 +28,6 @@ public class Customer {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-
-    //todo orders żeby było można łatwo wyfiltrować zamówienia klienta
-
     public Integer getId() {
         return id;
     }

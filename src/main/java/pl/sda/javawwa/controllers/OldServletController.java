@@ -47,7 +47,7 @@ public class OldServletController {
         model.put("daysList", daysList);
         model.put("daysParam", days);
 
-        return new ModelAndView("days", model);
+        return new ModelAndView("/niepotrzebne/days.jsp", model);
     }
 
 
@@ -63,7 +63,7 @@ public class OldServletController {
 
         resp.addCookie(new Cookie("mojeCiacho", "ciacho"));
 
-        return new ModelAndView("headers", model);
+        return new ModelAndView("/niepotrzebne/headers.jsp", model);
     }
 
     @RequestMapping("counter")
@@ -76,7 +76,7 @@ public class OldServletController {
         model.put("cookieCounter",incrementNumberInsideCookie);
         model.put("sessionCounter",incrementNumberInsideCookie);
 
-        return new ModelAndView("counters", model);
+        return new ModelAndView("/niepotrzebne/counters.jsp", model);
     }
 
 

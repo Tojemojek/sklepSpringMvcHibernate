@@ -1,8 +1,8 @@
 package pl.sda.javawwa.dto;
 
-public class BasketProductDto {
+public class OrderItemDto {
     private Integer productId;
-    private Integer count;
+    private Integer quantity;
 
     public Integer getProductId() {
         return productId;
@@ -12,11 +12,11 @@ public class BasketProductDto {
         this.productId = productId;
     }
 
-    public Integer getCount() {
-        return count;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 }

@@ -8,4 +8,5 @@ import java.util.List;
 public interface OrderDao {
     public List<Order> getAllCustomersOrders(Integer customerId);
     public Order getOrderById(Integer orderId);
+    public Boolean addOrder(Order order);
 }

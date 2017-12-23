@@ -25,8 +25,19 @@ public class Order {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+    //Todo sprawdzić czemu to badziewie nie działa!!! nie zapisuje do bazy obiektów potomnych
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
+
+    public Order() {
+    }
+
+    public Order(Status status, LocalDateTime orderedDate, Customer customer, List<OrderItem> orderItems) {
+        this.status = status;
+        this.orderedDate = orderedDate;
+        this.customer = customer;
+        this.orderItems = orderItems;
+    }
 
     public Integer getId() {
         return id;

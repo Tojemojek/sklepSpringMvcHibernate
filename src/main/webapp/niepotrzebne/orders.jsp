@@ -5,20 +5,19 @@
 <html>
 <body>
 
-<jsp:include page="userHeader.jsp"/>
+<jsp:include page="../views/userHeader.jsp"/>
 
-<c:if test="${not empty sessionScope.user}">
-<jsp:include page="zabezpieczone/pureOrders.jsp"/>
-</c:if>
+<jsp:include page="../views/zabezpieczone/pureOrders.jsp"/>
+
+<br>
 
 <div style="width: 50%; float: left">
-    <jsp:include page="topProducts.jsp"/>
+    <jsp:include page="../views/topProducts.jsp"/>
 </div>
 
 <div style="width: 50%; float: left">
-    <jsp:include page="productsInCategories.jsp"/>
+    <jsp:include page="../views/productsInCategories.jsp"/>
 </div>
-
 
 </body>
 </html>

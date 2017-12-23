@@ -2,19 +2,15 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page isELIgnored="false" %>
 
-<html>
-<body>
-
-<jsp:include page="../userHeader.jsp"/>
-<%--przeniosłem to warunkowo do userHeader, by nawet na głównej się wyświetlało--%>
-<%--<jsp:include page="userMenu.jsp"/>--%>
-
 <p>Moje zamówienia</p>
 
-Strona basket (koszyk) która wyświetli wszystkie obiekty w koszyku jest w sesji anonymous user controler.
-<br>
-<br>
-<table>
+<table border="1">
+    <tr>
+        <th>Id zamówienia</th>
+        <th>Status zamówienia</th>
+        <th>Data zamówienia</th>
+        <th>Kliknij po szczegóły</th>
+    </tr>
     <c:forEach items="${customersOrdersFromDatabase}" var="orders" varStatus="ordersStatus">
         <tr>
             <td><c:out value="${orders.id}"/></td>
@@ -24,13 +20,8 @@ Strona basket (koszyk) która wyświetli wszystkie obiekty w koszyku jest w sesj
                 <c:url value="/zabezpieczone/orderDetails" var="orderUrl">
                     <c:param name="orderId" value="${orders.id}"/>
                 </c:url>
-                <a href="<c:out value="${orderUrl}"/>">Szczegóły zamówienia</a>
+                <a href="<c:out value="${orderUrl}"/>">Zamówienie <c:out value="${orders.id}"/></a>
             </td>
         </tr>
     </c:forEach>
-
 </table>
-
-
-</body>
-</html>

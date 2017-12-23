@@ -1,5 +1,7 @@
 package pl.sda.javawwa.entity;
 
+
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -19,6 +21,15 @@ public class OrderItem implements Serializable {
 
     @Column(name = "quantity")
     Integer quantity;
+
+    public OrderItem() {
+    }
+
+    public OrderItem(Order order, Product product, Integer quantity) {
+        this.order = order;
+        this.product = product;
+        this.quantity = quantity;
+    }
 
     public Order getOrder() {
         return order;

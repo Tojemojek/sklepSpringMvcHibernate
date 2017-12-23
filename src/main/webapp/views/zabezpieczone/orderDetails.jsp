@@ -8,8 +8,14 @@
 <jsp:include page="../userHeader.jsp"/>
 <br>
 
+<c:choose>
+    <c:when test="${!yourOrder}">
+        <span style="color: red"><p>Zamówienie o <b> ID : <c:out value="${orderNumber}"/> </b> nie należy do Ciebie!</p></span>
+    </c:when>
+    <c:otherwise><span><p>Zamówienie o <b> ID : <c:out value="${orderNumber}"/> </b></p></span></c:otherwise>
+</c:choose>
 
-<p>Zamówienie o <b> ID : <c:out value="${orderNumber}"/> </b></p>
+
 
 <br>
 <table border="1">
