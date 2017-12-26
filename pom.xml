@@ -8,7 +8,7 @@
     <packaging>war</packaging>
 
     <build>
-        <finalName>sda-spring-test</finalName>
+        <finalName>sklepSpringowy</finalName>
 
         <plugins>
         <plugin>

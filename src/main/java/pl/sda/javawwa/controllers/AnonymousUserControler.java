@@ -20,7 +20,7 @@ public class AnonymousUserControler {
     private ProductDao productDao;
 
     @RequestMapping("/")
-    public ModelAndView indexPage(@RequestParam(name = "count", defaultValue = "32") Integer count,
+    public ModelAndView indexPage(@RequestParam(name = "count", defaultValue = "10") Integer count,
                                   @RequestParam(name = "showCategory",
                                           defaultValue = DEFAULT_PRODUCT_CATEGORY) String showCategory,
                                   HttpSession session) {
@@ -42,7 +42,7 @@ public class AnonymousUserControler {
     }
 
     @RequestMapping("/addToBasket")
-    public ModelAndView addToBasket(@RequestParam(name = "count", defaultValue = "32") Integer count,
+    public ModelAndView addToBasket(@RequestParam(name = "count", defaultValue = "10") Integer count,
                                     @RequestParam(name = "productId", required = true) Integer productId,
                                     @RequestParam(name = "quantity", required = true, defaultValue = "1") Integer orderedQuantity,
                                     HttpSession session) {

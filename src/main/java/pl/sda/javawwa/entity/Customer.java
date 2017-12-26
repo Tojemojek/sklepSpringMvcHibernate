@@ -2,11 +2,12 @@ package pl.sda.javawwa.entity;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "CUSTOMER")
-public class Customer {
+public class Customer implements Serializable {
 
     @Id
     @Column(name = "id")
@@ -75,6 +76,4 @@ public class Customer {
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-
-
 }

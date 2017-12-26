@@ -1,11 +1,12 @@
 package pl.sda.javawwa.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "PRODUCT")
-public class Product {
+public class Product implements Serializable {
 
     @Id
     @Column(name = "id")

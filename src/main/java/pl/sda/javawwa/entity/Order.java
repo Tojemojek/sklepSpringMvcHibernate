@@ -1,13 +1,16 @@
 package pl.sda.javawwa.entity;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "`ORDER`")
-public class Order {
+public class Order implements Serializable {
 
     @Id
     @Column(name = "id")
@@ -25,8 +28,7 @@ public class Order {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    //Todo sprawdzić czemu to badziewie nie działa!!! nie zapisuje do bazy obiektów potomnych
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
     public Order() {

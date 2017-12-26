@@ -58,6 +58,8 @@ public class OrderAddController {
 
         orderDao.addOrder(order);
 
+        session.removeAttribute("basket");
+
         return new ModelAndView("redirect:/zabezpieczone/");
     }
 }

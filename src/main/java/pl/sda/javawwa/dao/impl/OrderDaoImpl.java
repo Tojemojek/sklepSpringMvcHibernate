@@ -2,6 +2,7 @@ package pl.sda.javawwa.dao.impl;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,13 +57,13 @@ public class OrderDaoImpl implements OrderDao {
     public Boolean addOrder(Order order) {
         Session session = sessionFactory.openSession();
 
-        session.saveOrUpdate(order);
-        session.close();
+        Transaction transaction = session.beginTransaction();
+        session.save(order);
+        transaction.commit();
 
         if (order.getId() == null) {
             return true;
         }
-
 
         return false;
     }

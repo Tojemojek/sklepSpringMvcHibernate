@@ -1,6 +1,8 @@
 package pl.sda.javawwa.entity;
 
 
-public enum Status {
+import java.io.Serializable;
+
+public enum Status implements Serializable {
     NEW,PAID,SHIPPED,DELIVERED;
 }
