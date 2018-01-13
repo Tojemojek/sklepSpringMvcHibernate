@@ -11,8 +11,7 @@ import pl.sda.javawwa.dao.ProductDao;
 import pl.sda.javawwa.entity.Product;
 
 import javax.persistence.NoResultException;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 
 @Repository
@@ -73,5 +72,23 @@ public class ProductDaoImpl implements ProductDao {
                 .getResultList();
         session.close();
         return products;
+    }
+
+    @Override
+    public Map<Integer, Product> getProductsByIdIn(Collection<Integer> productsId) {
+
+        Map<Integer, Product> productMap = new HashMap<>();
+        Session session = sessionFactory.openSession();
+
+        List<Product> products = session.createQuery("select p from Product p where p.id in :productsId", Product.class)
+                .setParameter("productsId", productsId)
+                .getResultList();
+        session.close();
+
+        for (Product product : products) {
+            productMap.put(product.getId(), product);
+        }
+
+        return productMap;
     }
 }

@@ -11,10 +11,10 @@
         <th>Data zamówienia</th>
         <th>Kliknij po szczegóły</th>
     </tr>
-    <c:forEach items="${customersOrdersFromDatabase}" var="orders" varStatus="ordersStatus">
+    <c:forEach items="${customersOrdersFromDatabase}" var="orders">
         <tr>
             <td><c:out value="${orders.id}"/></td>
-            <td><c:out value="${orders.status}"/></td>
+            <td><c:out value="${orders.status.displayedName}"/></td>
             <td><c:out value="${orders.orderedDate}"/></td>
             <td>
                 <c:url value="/zabezpieczone/orderDetails" var="orderUrl">

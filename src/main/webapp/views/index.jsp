@@ -8,8 +8,11 @@
 <jsp:include page="userHeader.jsp"/>
 
 <c:if test="${not empty sessionScope.user}">
-<jsp:include page="zabezpieczone/pureOrders.jsp"/>
+    <jsp:include page="zabezpieczone/pureOrders.jsp"/>
+
+    <br><br>
 </c:if>
+
 
 <div style="width: 50%; float: left">
     <jsp:include page="topProducts.jsp"/>

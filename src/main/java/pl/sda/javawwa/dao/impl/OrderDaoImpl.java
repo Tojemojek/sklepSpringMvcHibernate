@@ -37,6 +37,8 @@ public class OrderDaoImpl implements OrderDao {
     public Order getOrderById(Integer orderId) {
         Session session = sessionFactory.openSession();
         Order order;
+
+
         try {
             order = session.createQuery(
                     "select o from Order o left join fetch o.orderItems where o.id =:orderId", Order.class)

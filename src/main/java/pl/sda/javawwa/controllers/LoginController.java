@@ -49,4 +49,13 @@ public class LoginController {
         return new ModelAndView("login", model);
 
     }
+
+    @RequestMapping("/logout")
+    public ModelAndView logOut(HttpSession session) {
+        session.removeAttribute("user");
+        session.removeAttribute("requestedUrl");
+        Integer count = (Integer) session.getAttribute("count");
+
+        return new ModelAndView("redirect:/");
+    }
 }

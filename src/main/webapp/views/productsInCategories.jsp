@@ -5,11 +5,14 @@
         <form action="" method="get">
             <select name="showCategory">
             <c:forEach items="${productCategories}" var="categories">
-                           <option value="${categories}">${categories}</option>
+                           <option value="${categories}"
+                                   <c:if test="${categories eq selectedProductType}"> selected </c:if>>
+                                   ${categories}</option>
             </c:forEach>
             </select>
             <input type="submit" value="Wyświetl produkty z tej kategorii">
        </form>
+
 
 
 <c:if test="${not empty productInCategory}">

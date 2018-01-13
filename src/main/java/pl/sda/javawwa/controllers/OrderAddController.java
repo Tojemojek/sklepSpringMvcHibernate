@@ -33,7 +33,6 @@ public class OrderAddController {
     private CustomerDao customerDao;
 
     @RequestMapping("")
-
     public ModelAndView createNewOrderFromBasket(HttpSession session) {
 
         CustomerDto customerDto = (CustomerDto) session.getAttribute("user");
@@ -54,8 +53,8 @@ public class OrderAddController {
                 orderItems.add(new OrderItem(order, product, quantity));
             }
         }
-        order.setOrderItems(orderItems);
 
+        order.setOrderItems(orderItems);
         orderDao.addOrder(order);
 
         session.removeAttribute("basket");
